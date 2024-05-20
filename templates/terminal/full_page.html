@@ -1,0 +1,11 @@
+{% extends "terminal/base.html" %}
+
+{% block title %}Полноэкранный режим{% endblock %}
+
+{% block content %}
+    <iframe src="{{ button.link }}" style="width: 100%; height: 80vh; border: none;"></iframe>
+    <nav>
+        <a class="button" href="javascript:history.back()">Назад</a>
+        <a class="button" href="{% url 'index' %}">На главную</a>
+    </nav>
+{% endblock %}

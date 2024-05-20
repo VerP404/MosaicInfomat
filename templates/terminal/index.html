@@ -1,0 +1,18 @@
+{% extends 'terminal/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+    {% for block in blocks %}
+        <div class="block">
+            <h2>{{ block.title }}</h2>
+            <div class="button-container">
+                {% for button in block.buttons.all %}
+                    <a href="{% if button.page %}{% url 'page' button.page.id %}{% else %}{{ button.link }}{% endif %}">
+                        <button>{{ button.label }}</button>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
