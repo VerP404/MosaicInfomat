@@ -1,10 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    background: #4D53E8;
-    color: white;
+    background: white; /* Белый фон страницы */
+    color: black; /* Черный основной текст */
+    margin: 0; /* Убираем отступы по краям */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Высота экрана */
 }
 
 header, footer {
+    background-color: #003366; /* Синий фон */
+    color: white; /* Белый текст */
     text-align: center;
     padding: 10px;
 }
@@ -14,85 +20,43 @@ header img {
     height: auto;
 }
 
-
-
-main {
-    padding: 20px;
-    text-align: center;
+#current-date-output {
+    font-size: 20px;
 }
 
-/*.block {*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.block h2 {*/
-/*    font-size: 20px;*/
-/*}*/
-
-/*.block button {*/
-/*    margin: 5px;*/
-/*    padding: 10px;*/
-/*    font-size: 16px;*/
-/*}*/
-
-
-
-
-/*.block {*/
-/*    text-align: center; !* Выравнивание содержимого по центру *!*/
-/*}*/
-
-/*.block h2 {*/
-/*    margin-top: 50px;*/
-/*    margin-bottom: 10px; !* Отступ снизу для заголовка *!*/
-/*}*/
-
-/*.button-container {*/
-/*    display: flex; !* Используем Flexbox для контейнера кнопок *!*/
-/*    flex-wrap: wrap; !* Позволяет переносить элементы на новую строку *!*/
-/*    justify-content: flex-start; !* Выравнивание кнопок к началу контейнера *!*/
-
-/*}*/
-
-/*.block a.single-button {*/
-/*    width: 100%; !* Ширина одной кнопки, если она одна в ряду *!*/
-/*    margin-bottom: 8px; !* Отступ снизу для кнопки *!*/
-/*}*/
-
-/*.block a.multi-button {*/
-/*    width: 50%; !* Ширина кнопки, если их несколько в ряду *!*/
-/*    margin-bottom: 8px; !* Отступ снизу для кнопки *!*/
-/*}*/
-
-/*.block button {*/
-/*    width: 100%; !* Ширина кнопки для заполнения всей ширины ссылки *!*/
-/*    font-family: Arial, sans-serif; !* Шрифт для кнопки *!*/
-/*    font-size: 36px; !* Размер шрифта *!*/
-/*    padding: 10px 0; !* Внутренний отступ *!*/
-/*}*/
+main {
+    flex: 1; /* Основное содержимое занимает оставшуюся часть экрана */
+    padding: 20px;
+}
 
 .block {
     text-align: center; /* Выравнивание содержимого по центру */
+    margin-bottom: 40px; /* Отступ снизу для разделения блоков */
+    padding: 20px; /* Внутренний отступ */
+    border: 2px solid #003366; /* Синяя рамка вокруг блока */
+    border-radius: 10px; /* Скругленные углы */
+    background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачный черный фон для блока */
 }
 
 .block h2 {
-    margin-top: 50px;
-    margin-bottom: 10px; /* Отступ снизу для заголовка */
+    margin-top: 0;
+    margin-bottom: 20px; /* Отступ снизу для заголовка */
 }
 
 .button-container {
     display: flex; /* Используем Flexbox для контейнера кнопок */
     flex-wrap: wrap; /* Позволяет переносить элементы на новую строку */
-    justify-content: flex-start; /* Выравнивание кнопок к началу контейнера */
+    justify-content: center; /* Выравнивание кнопок по центру контейнера */
+    gap: 10px; /* Расстояние между кнопками */
 }
 
 .block a {
-    width: 50%; /* Задаем ширину для всех ссылок, чтобы добиться двух кнопок в ряд */
+    flex: 1 1 45%; /* Задаем ширину для всех ссылок, чтобы добиться двух кнопок в ряд */
     box-sizing: border-box; /* Включаем в расчет ширины границы и padding */
 }
 
 .block a:last-child:nth-child(odd) {
-    width: 100%; /* Если ссылка единственная в строке (нечетный номер и последняя), она займет всю ширину */
+    flex: 1 1 95%; /* Если ссылка единственная в строке (нечетный номер и последняя), она займет всю ширину */
 }
 
 .block button {
@@ -101,16 +65,58 @@ main {
     border: none; /* Убираем рамку */
     width: 100%; /* Ширина кнопки для заполнения всей ширины */
     font-family: Arial, sans-serif; /* Шрифт для кнопки */
-    font-size: 36px; /* Размер шрифта */
+    font-size: 2.5vw; /* Относительный размер шрифта */
     padding: 10px 0; /* Внутренний отступ */
     white-space: nowrap; /* Запрещаем перенос текста на новую строку */
     overflow: hidden; /* Обрезаем текст, выходящий за границы */
     text-overflow: ellipsis; /* Добавляем многоточие в конце обрезанного текста */
     cursor: pointer; /* Меняем курсор на указатель, чтобы подчеркнуть, что это кнопка */
     transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
-    margin: 2px 0; /* Верхний и нижний отступы в 2px, без боковых отступов */
+    display: flex; /* Используем Flexbox для выравнивания текста внутри кнопки */
+    align-items: center; /* Вертикальное выравнивание */
+    justify-content: center; /* Горизонтальное выравнивание */
 }
 
 .block button:hover {
     background-color: #002244; /* Немного более темный синий цвет при наведении */
+}
+
+footer {
+    position: fixed; /* Фиксируем положение футера */
+    bottom: 0; /* Прикрепляем к нижней части экрана */
+    width: 100%; /* Ширина на всю страницу */
+}
+footer a {
+  text-decoration: none; /* Убирает подчеркивание */
+  color: white; /* Задает цвет текста, совпадающий с обычным текстом. Измените по необходимости */
+}
+
+footer a:hover, footer a:active, footer a:visited, footer a:focus {
+  text-decoration: none;
+  color: white; /* Удерживает стиль ссылки постоянным даже при наведении или после клика. Измените по необходимости */
+}
+
+
+
+
+.nav-buttons {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.nav-buttons button:hover {
+    background-color: #002244;
 }

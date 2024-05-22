@@ -1,4 +1,5 @@
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class Block(models.Model):
@@ -20,7 +21,7 @@ class Button(models.Model):
 
 class Page(models.Model):
     title = models.CharField(max_length=200)
-    content = models.TextField()
+    content = CKEditor5Field(verbose_name='Страница', config_name='extends')
 
     def __str__(self):
         return self.title
